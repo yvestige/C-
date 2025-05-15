@@ -4,10 +4,14 @@
 #include <iostream>     // including input-output stream header file
 #include <limits>       // for the limits thing
 #include <string>       // for string
+
 // namespaces
 using namespace std;
 
-bool IsOnlySpace(string str) {
+/// @brief Function that determines if a given string contains only white-space characters or not.
+/// @param str String to process.
+/// @return Boolean value.
+bool IsOnlyWhiteSpace(string str) {
     string whitespaces = "\n\t ";
     for (char c:str) {
         if (whitespaces.find(c) != string::npos) {
@@ -52,7 +56,7 @@ void multiplication(double value1, double value2) {
 int main() {
 
     // loop    
-    while (1) {
+    while (true) {
 
         // variable declarations
         int option;
@@ -82,7 +86,7 @@ int main() {
             CleanBuffer();
 
             // continuously check until completely okay
-            while (1) {
+            while (true) {
                 cout << "\nEnter two values: ";
                 cin >> value1 >> value2;
 
@@ -95,7 +99,7 @@ int main() {
                     CleanBuffer();
 
                 // if more than 1 value given
-                } else if (!IsOnlySpace(tempStr)) {
+                } else if (!IsOnlyWhiteSpace(tempStr)) {
                     cout << "Should be less than 3 values." << endl;
                     // no need to clean buffer because is empty here
                     
