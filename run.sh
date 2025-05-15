@@ -1,3 +1,3 @@
 clear 
-g++ sample.cpp
+g++ "1. calculator.cpp"
 ./a.out
