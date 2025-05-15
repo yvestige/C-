@@ -11,7 +11,7 @@ using namespace std;
 /// @brief Function that determines if a given string contains only white-space characters or not.
 /// @param str String to process.
 /// @return Boolean value.
-bool IsOnlyWhiteSpace(string str) {
+bool isOnlyWhiteSpace(string str) {
     string whitespaces = "\n\t ";
     for (char c:str) {
         if (whitespaces.find(c) != string::npos) {
@@ -22,7 +22,7 @@ bool IsOnlyWhiteSpace(string str) {
 }
 
 // cleans the buffer
-void CleanBuffer() {
+void cleanBuffer() {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
@@ -79,7 +79,7 @@ int main() {
         // check if wrong option found
         if (option < 1 || option > 5) {
             cout << endl << "\nWrong option! Try again." << endl;
-            CleanBuffer();
+            cleanBuffer();
             continue;
         
 
@@ -91,7 +91,7 @@ int main() {
 
         // if correct
         } else {
-            CleanBuffer();
+            cleanBuffer();
 
             // continuously check until completely okay
             while (true) {
@@ -104,10 +104,10 @@ int main() {
                 // if parse failed
                 if (cin.fail()) {
                     cout << "Wrong value. Try again!" << endl;
-                    CleanBuffer();
+                    cleanBuffer();
 
                 // if more than 1 value given
-                } else if (!IsOnlyWhiteSpace(tempStr)) {
+                } else if (!isOnlyWhiteSpace(tempStr)) {
                     cout << "Should be less than 3 values." << endl;
                     // no need to clean buffer because is empty here
                     
