@@ -69,6 +69,7 @@ int main() {
         cout << "2. Perform subtraction" << endl;
         cout << "3. Perform multiplication" << endl;
         cout << "4. Perform division" << endl;
+        cout << "5. Exit program" << endl;
 
         // get choice
         cout << "\nOption: ";
@@ -76,11 +77,18 @@ int main() {
 
         
         // check if wrong option found
-        if (option < 1 || option > 4) {
+        if (option < 1 || option > 5) {
             cout << endl << "\nWrong option! Try again." << endl;
             CleanBuffer();
             continue;
         
+
+        // if exit option
+        } else if (option == 5) {
+            cout << "\nThank you for using the calculator." << endl;
+            break;
+        
+
         // if correct
         } else {
             CleanBuffer();
