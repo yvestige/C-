@@ -1,5 +1,5 @@
 // my first C++ calculator
-// May 16, 2025 [12:37 AM]
+// May 16, 2025 [1:34 AM]
 
 #include <iostream>     // including input-output stream header file
 #include <limits>       // for the limits thing
@@ -130,6 +130,5 @@ int main() {
             // loop again
             cout << endl;
         }
-
     }
 }
