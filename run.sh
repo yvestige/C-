@@ -1,3 +1,3 @@
 clear 
-g++ "1. calculator.cpp"
+g++ "2. string ops.cpp"
 ./a.out
