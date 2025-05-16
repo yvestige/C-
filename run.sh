@@ -1,3 +1,4 @@
 clear 
-g++ "2. string ops.cpp"
+g++ "3. pattern-instagram.cpp"
+# gcc sample.c
 ./a.out
