@@ -14,6 +14,7 @@ std::map<std::string,std::map<std::string,long long>> getMapTable() {
     std::map<std::string,std::map<std::string,long long>> mapTable = {
         {
             "value", {
+                {"zero", 0},
                 {"one", 1},
                 {"two", 2},
                 {"three", 3},
@@ -41,12 +42,11 @@ std::map<std::string,std::map<std::string,long long>> getMapTable() {
                 {"seventy", 70},
                 {"eighty", 80},
                 {"ninety", 90},
+                {"hundred",100},
             }
         },
-
         {
             "multiplier", {
-                {"hundred",100},
                 {"thousand",1000},
                 {"million",1000000},
                 {"billion",1000000000},
@@ -67,8 +67,13 @@ std::map<std::string,std::map<std::string,long long>> getMapTable() {
 /// @return Vector of string words
 std::vector<std::string> turnWordsToWordVector(const std::string& words) {
 
+    // replace '-' with space
+    auto wordsTemp = words;
+    std::transform(wordsTemp.begin(), wordsTemp.end(), wordsTemp.begin(), 
+    [](const char& c) {return c == '-' ? ' ' : c;});
+
     // variables
-    std::istringstream wordStream(words);
+    std::istringstream wordStream(wordsTemp);
     std::vector<std::string> wordVector;
     std::string word;
 
@@ -107,7 +112,7 @@ void convertWordToNumber(const std::string& words) {
     const auto& multiplierMap = mapTable.at("multiplier");
 
     // variables for reference in computation
-    long long value = 0, multiplier = 1;
+    long long value = 0, finalValue = 0, multiplier = 1;
     bool isNegative = false;
 
     // iterate through each word
@@ -121,18 +126,35 @@ void convertWordToNumber(const std::string& words) {
 
         // if word is a value
         if (valueMap.find(word) != valueMap.end()) {
-            // do algorithm for value
-        
+            if (word == "hundred") {
+                value *= 100;
+            } else {
+                value += valueMap.at(word);
+            }
+            multiplier = 1;
 
         // if word is a multiplier
         } else if (multiplierMap.find(word) != multiplierMap.end()) {
-            // do method for multiplier
+            multiplier = multiplierMap.at(word);
+            finalValue += (value*multiplier);
+            multiplier = 0;
+            value = 0;
         
         // if none found
         } else {
             std::cout << "ERROR: token '" << word << "' invalid.\n"; 
+            return;
         }
     }
+
+    // add the last value
+    finalValue += (value*multiplier);
+
+    // apply negative appropriately
+    finalValue = isNegative ? -finalValue : finalValue;
+
+    // print the final value
+    std::cout << "\nResult: " << finalValue << "\n";
 }
 
 // main function
