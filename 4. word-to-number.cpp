@@ -1,3 +1,11 @@
+// App that turns words into numbers.
+// This is my 4th C++ application. Learning C++ for fun.
+
+// Sample long value: negative Four hundred sixty-three quadrillion, seven hundred twenty-eight trillion, one hundred ninety-two billion, five million, eighty-three thousand, six hundred forty-one
+
+//  Started: May 17, 2025 (7:46 PM)
+//    Ended: May 17, 2025 (11:44 PM)
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -15,6 +23,7 @@ std::map<std::string,std::map<std::string,long long>> getMapTable() {
         {
             "value", {
                 {"zero", 0},
+                {"and", 0},
                 {"one", 1},
                 {"two", 2},
                 {"three", 3},
