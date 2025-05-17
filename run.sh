@@ -1,4 +1,4 @@
 clear 
-g++ "3. pattern-instagram.cpp"
+g++ "4. word-to-number.cpp"
 # gcc sample.c
 ./a.out
