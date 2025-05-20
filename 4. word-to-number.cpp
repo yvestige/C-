@@ -1,6 +1,8 @@
 // App that turns words into numbers.
 // This is my 4th C++ application. Learning C++ for fun.
 
+// What I learned: Overall everything I learned is about iterators. And also about the easy ways I can use lambda over strings to easily modify them. Using tolower and changing '-' to ' ' for example was super fast and easy. Now understand why C++ is so powerful, it's amazing. But I'm just touching the surface. Also got to practice a lot with vector<> and got to use long long too for the first time in C++. Also understood now the logic between the functions string.erase, std::remove(), and std::transform(). Also got used to putting std:: now and using auto appropriately. Now no longer using using namespace. Getting more comfortable with lambda.
+
 // Sample long value: negative Four hundred sixty-three quadrillion, seven hundred twenty-eight trillion, one hundred ninety-two billion, five million, eighty-three thousand, six hundred forty-one
 
 //  Started: May 17, 2025 (7:46 PM)
