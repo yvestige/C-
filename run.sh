@@ -1,4 +1,4 @@
 clear 
-g++ "4. word-to-number.cpp"
+g++ "5. tricky-question-1.cpp"
 # gcc sample.c
 ./a.out
