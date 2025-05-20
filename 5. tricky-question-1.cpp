@@ -2,6 +2,10 @@
 // Assume numbers cannot exceed 10, but can support 0-9. Assume none before [] = 1.
 // This is my 5th C++ application. Learning C++ for fun.
 
+// potential improvements:
+// 1. allow 2 or more digits
+// 2. check for integrity of []'s.
+
 // What I learned: More about iterators, also a new container "deque" which acts like a stack.
 // also, string manipulation such as substrings, appending, character checking if alpha or number, etc.
 
@@ -28,6 +32,7 @@ void processString(const std::string& str) {
     // other variables
     std::string result;
     int strIndex = 0;
+    bool success = true;
 
     // do for every character
     for (const char& c : str) {
@@ -63,6 +68,7 @@ void processString(const std::string& str) {
 
             // variable declarations
             int currentIndex = stack.size();
+            bool integrityValid = false;
             std::string substring = "";
 
             // actually check integrity
@@ -81,6 +87,9 @@ void processString(const std::string& str) {
 
                 // if appropriate integrity found
                 if (*it == '[') {
+
+                    // integrity success
+                    integrityValid = true;
 
                     // multiplier
                     int n = 1, n_found = 0;
@@ -109,6 +118,13 @@ void processString(const std::string& str) {
                     break;
                 }
             }
+
+            // if integrity not valid, failed
+            if (!integrityValid) {
+                success = false;
+                std::cout << "Error: format '_n_[<C>]' required (10001)\n\n";
+                return;
+            }
         }
 
         if (SHOW_SOLUTION) {
@@ -128,6 +144,12 @@ void processString(const std::string& str) {
             std::cout << "logged: '" << c << "'\n";
         }        
         result.append(1,c);
+    }
+
+    // if mismatch found, do not print string
+    if (result.find('[') != std::string::npos) {
+        std::cout << "Error: unmatched '[]' (10002)\n\n";
+        return;
     }
 
     // print out result
